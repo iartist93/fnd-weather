@@ -38,6 +38,7 @@ let weatherData = {};
 
 app.get("/getData", (req, res) => {
   console.log(`get data ${weatherData}`);
+  res.send(weatherData);
 });
 
 app.post("/addNew", (req, res) => {

@@ -1,9 +1,17 @@
 const initialSetup = () => {
   document.querySelector(".generate").addEventListener("click", async () => {
+    console.log("postData1");
     const zipCode = document.querySelector(".zip-input").value;
-    const apiResponse = await getWeatherData(parseInt(zipCode));
-    const serverResonse = await postData("/addNew", apiResponse);
-    updateUI(serverResonse);
+    console.log(zipCode);
+    try {
+      const apiResponse = await getWeatherData(parseInt(zipCode));
+      await postData("/addNew", apiResponse);
+      console.log(apiResponse);
+      const serverResonse = await getData("/getData");
+      updateUI(serverResonse);
+    } catch (error) {
+      console.error(error);
+    }
   });
 };
 
@@ -34,25 +42,32 @@ const getWeatherData = async (zipCode) => {
 ///////////////////////////////////////////////////////////////////
 
 /**
+ *
+ * @param url endpoint to fetch data from
+ */
+const getData = async (url) => {
+  console.log(url);
+  const response = await fetch(url);
+  return await response.json();
+};
+
+///////////////////////////////////////////////////////////////////
+
+/**
  * @param url  Express end point to post request
  * @param data object to send with the post request
- *
- * @return object data send from end point
  */
 const postData = async (url = "", data = {}) => {
-  const response = await fetch(url, {
-    method: "POST",
-    credentials: "same-origin",
-    headers: {
-      "Content-Type": "application/json", // the body of the request will be json
-    },
-    body: JSON.stringify(data),
-  });
-
   try {
-    const newData = await response.json();
-    console.log(newData);
-    return newData;
+    await fetch(url, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json", // the body of the request will be json
+      },
+      body: JSON.stringify(data),
+    });
+    console.log("postData()");
   } catch (error) {
     console.error(`postData error : ${error.message}`);
   }
