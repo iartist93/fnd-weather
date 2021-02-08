@@ -15,16 +15,33 @@ app.use(bodyParser.json());
 // use Cors for cross origin allowance
 app.use(cors());
 
+console.log(cors);
+console.log(cors());
+
 // inialize the main project folde???
 // connect clinet-side code inside `demo` foler
-app.use(express.static("demo"));
+app.use(express.static("./src/website"));
 
-/* Setup Server */
+/* Routing */
 
 const listening = () => {
   console.log(`listening on ${port}`);
 };
 
 const port = 8000;
-
 const server = app.listen(port, listening);
+
+const movies = [];
+
+app.get("/hello", (req, res) => {
+  res.send("hello");
+});
+
+app.get("/allMovies", (req, res) => {
+  res.send(movies);
+});
+
+app.post("/addMovie", (req, res) => {
+  movies.push(req.body);
+  res.send(movies);
+});
