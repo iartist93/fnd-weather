@@ -1,10 +1,13 @@
 const express = require("express");
+const { format } = require("date-fns");
+
 const app = express();
 
 /* Dependencies */
 
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const { runInNewContext } = require("vm");
 
 /* Middleware*/
 
@@ -31,17 +34,15 @@ const listening = () => {
 const port = 8000;
 const server = app.listen(port, listening);
 
-const movies = [];
+let weatherData = {};
 
-app.get("/hello", (req, res) => {
-  res.send("hello");
+app.get("/getData", (req, res) => {
+  console.log(`get data ${weatherData}`);
 });
 
-app.get("/allMovies", (req, res) => {
-  res.send(movies);
-});
-
-app.post("/addMovie", (req, res) => {
-  movies.push(req.body);
-  res.send(movies);
+app.post("/addNew", (req, res) => {
+  console.log(`Add new ${req.body}`);
+  weatherData = req.body;
+  weatherData["day"] = format(Date.now(), "EEEE, d MMMM");
+  res.send(weatherData);
 });
