@@ -1,12 +1,13 @@
 const initialSetup = () => {
   document.querySelector(".generate").addEventListener("click", async () => {
     console.log("postData1");
-    const zipCode = document.querySelector(".zip-input").value;
-    console.log(zipCode);
+    const zipCode = document.querySelector("#zip").value;
+    const feelings = document.querySelector("#feelings").value;
     try {
       const apiResponse = await getWeatherData(parseInt(zipCode));
-      await postData("/addNew", apiResponse);
-      console.log(apiResponse);
+      let data = apiResponse;
+      data["feelings"] = feelings;
+      await postData("/addNew", data);
       const serverResonse = await getData("/getData");
       updateUI(serverResonse);
     } catch (error) {
@@ -76,10 +77,11 @@ const postData = async (url = "", data = {}) => {
 ///////////////////////////////////////////////////////////////////
 
 const updateUI = (data) => {
-  const weatherElement = document.querySelector(".weather-data");
-  const dateElement = document.querySelector(".day-data");
-  const userResponseElement = document.querySelector(".user-response-data");
+  const tempElement = document.querySelector("#temp");
+  const dateElement = document.querySelector("#date");
+  const feelingsElement = document.querySelector("#content");
 
-  weatherElement.textContent = data.main.temp + "F";
+  tempElement.textContent = data.main.temp + "F";
   dateElement.textContent = data.day;
+  feelingsElement.textContent = data.feelings;
 };

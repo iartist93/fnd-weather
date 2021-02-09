@@ -2,17 +2,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Node Express Demo</title>
+    <title>Weather</title>
   </head>
   <body>
     <h1>Weather</h1>
     <button class="generate">Get Weather</button>
-    <input class="zip-input" type="text" placeholder="84112" />
+    <input id="zip" type="text" placeholder="enter zip" />
+    <textarea name="" id="feelings" cols="30" rows="10"></textarea>
     <script src="app.js"></script>
-    <ul>
-      <li>Temperature : <span class="weather-data"> </span></li>
-      <li>Date : <span class="day-data"></span></li>
-      <li>User Input : <span class="user-response-data"> </span></li>
-    </ul>
+    <div id="entryHolder">
+      <div id="temp"></div>
+      <div id="date"></div>
+      <div id="content"></div>
+    </div>
   </body>
 </html>

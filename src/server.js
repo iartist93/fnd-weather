@@ -34,16 +34,16 @@ const listening = () => {
 const port = 8000;
 const server = app.listen(port, listening);
 
-let weatherData = {};
+let projectData = {};
 
 app.get("/getData", (req, res) => {
-  console.log(`get data ${weatherData}`);
-  res.send(weatherData);
+  console.log(`get data ${projectData}`);
+  res.send(projectData);
 });
 
 app.post("/addNew", (req, res) => {
   console.log(`Add new ${req.body}`);
-  weatherData = req.body;
-  weatherData["day"] = format(Date.now(), "EEEE, d MMMM");
-  res.send(weatherData);
+  projectData = req.body;
+  projectData["day"] = format(Date.now(), "EEEE, d MMMM");
+  res.send(projectData);
 });
