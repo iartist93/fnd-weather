@@ -1,5 +1,5 @@
 const initialSetup = () => {
-  document.querySelector(".generate").addEventListener("click", async () => {
+  document.querySelector("#generate").addEventListener("click", async () => {
     console.log("postData1");
     const zipCode = document.querySelector("#zip").value;
     const feelings = document.querySelector("#feelings").value;

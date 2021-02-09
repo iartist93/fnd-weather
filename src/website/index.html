@@ -2,18 +2,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Weather</title>
   </head>
   <body>
-    <h1>Weather</h1>
-    <button class="generate">Get Weather</button>
-    <input id="zip" type="text" placeholder="enter zip" />
-    <textarea name="" id="feelings" cols="30" rows="10"></textarea>
-    <script src="app.js"></script>
-    <div id="entryHolder">
-      <div id="temp"></div>
-      <div id="date"></div>
-      <div id="content"></div>
-    </div>
+    <main class="flex-c justify-center">
+      <section class="inputs flex-c justify-center">
+        <input
+          id="zip"
+          class="ronded-corner"
+          type="text"
+          placeholder="enter zip"
+          maxlength="6"
+        />
+        <textarea
+          name="feelings"
+          id="feelings"
+          class="ronded-corner"
+          cols="30"
+          rows="10"
+          placeholder="How're you feeling?"
+          maxlength="15"
+        ></textarea>
+        <button id="generate">Search</button>
+        <script src="app.js"></script>
+      </section>
+      <div id="entryHolderCard" class="ronded-corner flex-c justify-center">
+        <div id="temp">280.08F</div>
+        <div id="date">Tuesday, 9 February</div>
+        <div id="content">good</div>
+      </div>
+    </main>
   </body>
 </html>

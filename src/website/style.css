@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to top right, #5842d7, #8f76e7);
+}
+
+.flex-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+  align-items: center;
+  /* align-content: center; */
+}
+
+.ronded-corner {
+  border-radius: 5px;
+  outline: none;
+}
+
+.inputs {
+  width: 50vw;
+}
+
+#feelings {
+  resize: none;
+  width: 280px;
+  height: 50px;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+  overflow: hidden;
+}
+
+#feelings::placeholder {
+  font-size: 23px;
+}
+
+#feelings::placeholder {
+  content: "";
+  border-color: black;
+}
+
+#zip {
+  width: 140px;
+  height: 40px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#generate {
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 50px;
+  outline: none;
+  background-color: #6f57da;
+  color: white;
+  border-color: #6a52da;
+}
+
+#generate:active {
+  border: #6a52da 1px solid;
+}
+
+/***************************************
+* Card
+*/
+
+#entryHolderCard {
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  justify-content: space-around;
+}
+
+#temp {
+  font-size: 40px;
+}
+
+#content {
+  font-size: 30px;
+  font-weight: 700;
+}
