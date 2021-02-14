@@ -3,9 +3,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css"
+      integrity="sha512-shT5e46zNSD6lt4dlJHb+7LoUko9QZXTGlmWWx0qjI9UhQrElRb+Q5DM7SVte9G9ZNmovz2qIaV7IWv0xQkBkw=="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap"
+      rel="stylesheet"
+    />
     <title>Weather</title>
   </head>
   <body>
+    <div id="background"></div>
     <main class="flex-c justify-center">
       <section class="inputs flex-c justify-center">
         <input
@@ -15,7 +27,7 @@
           placeholder="enter zip"
           maxlength="6"
         />
-        <textarea
+        <input
           name="feelings"
           id="feelings"
           class="ronded-corner"
@@ -23,15 +35,18 @@
           rows="10"
           placeholder="How're you feeling?"
           maxlength="15"
-        ></textarea>
+        />
         <button id="generate">Search</button>
-        <script src="app.js"></script>
       </section>
-      <div id="entryHolderCard" class="ronded-corner flex-c justify-center">
-        <div id="temp">280.08F</div>
-        <div id="date">Tuesday, 9 February</div>
-        <div id="content">good</div>
-      </div>
+      <section class="entries flex justify-center">
+        <div id="entryHolderCard" class="ronded-corner flex-c justify-center">
+          <div id="city">USA</div>
+          <div id="temp">280.08F</div>
+          <div id="date">Tuesday, 9 February</div>
+          <div id="content">good</div>
+        </div>
+      </section>
     </main>
+    <script src="app.js"></script>
   </body>
 </html>

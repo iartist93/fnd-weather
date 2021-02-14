@@ -1,4 +1,5 @@
 const initialSetup = () => {
+  console.log("out");
   document.querySelector("#generate").addEventListener("click", async () => {
     console.log("postData1");
     const zipCode = document.querySelector("#zip").value;
@@ -20,6 +21,7 @@ const initialSetup = () => {
 
 // add event handles when the page loaded
 window.addEventListener("DOMContentLoaded", initialSetup);
+console.log("fuckers");
 
 ///////////////////////////////////////////////////////////////////
 
@@ -36,8 +38,8 @@ const getWeatherData = async (zipCode) => {
   const endPointURL = `${baseURL}zip=${zipCode}&appid=${weatherAPIKey}`;
   const response = await fetch(endPointURL);
   const result = await response.json();
-  return result;
   console.log(result);
+  return result;
 };
 
 ///////////////////////////////////////////////////////////////////
@@ -77,10 +79,13 @@ const postData = async (url = "", data = {}) => {
 ///////////////////////////////////////////////////////////////////
 
 const updateUI = (data) => {
+  console.log("Update UI");
+  const cityElement = document.querySelector("#city");
   const tempElement = document.querySelector("#temp");
   const dateElement = document.querySelector("#date");
   const feelingsElement = document.querySelector("#content");
 
+  cityElement.textContent = data.name;
   tempElement.textContent = data.main.temp + "F";
   dateElement.textContent = data.day;
   feelingsElement.textContent = data.feelings;

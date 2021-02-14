@@ -31,7 +31,7 @@ const listening = () => {
   console.log(`listening on ${port}`);
 };
 
-const port = 8000;
+const port = 8800;
 const server = app.listen(port, listening);
 
 let projectData = {};
