@@ -1,0 +1,27 @@
+{
+  "name": "fnd-weather",
+  "version": "1.0.0",
+  "description": "```shell\r > cd fnd-weather\r > node src/server.js\r ```",
+  "main": "src/server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "date-fns": "^2.17.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iartist93/fnd-weather.git"
+  },
+  "author": "Ahmad Ayman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iartist93/fnd-weather/issues"
+  },
+  "homepage": "https://github.com/iartist93/fnd-weather#readme"
+}
