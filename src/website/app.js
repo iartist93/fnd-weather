@@ -35,7 +35,8 @@ const baseURL = "https://api.openweathermap.org/data/2.5/weather?";
  * @return object API response
  */
 const getWeatherData = async (zipCode) => {
-  const endPointURL = `${baseURL}zip=${zipCode}&appid=${weatherAPIKey}`;
+  const endPointURL = `${baseURL}zip=${zipCode}&appid=${weatherAPIKey}&units=metric`;
+  console.log(endPointURL);
   const response = await fetch(endPointURL);
   const result = await response.json();
   console.log(result);
@@ -85,8 +86,8 @@ const updateUI = (data) => {
   const dateElement = document.querySelector("#date");
   const feelingsElement = document.querySelector("#content");
 
-  cityElement.textContent = data.name;
-  tempElement.textContent = data.main.temp + "F";
-  dateElement.textContent = data.day;
-  feelingsElement.textContent = data.feelings;
+  cityElement.innerHTML = data.name;
+  tempElement.innerHTML = data.main.temp + "C";
+  dateElement.innerHTML = data.day;
+  feelingsElement.innerHTML = data.feelings;
 };
